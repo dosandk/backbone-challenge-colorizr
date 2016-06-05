@@ -5,13 +5,14 @@ define(
     function (Backbone) {
         return Backbone.Router.extend({
             prevRout: null,
+            created: {},
             initialize: function() {
                 var router = this;
                 
                 router.on('route', function (route, args) {
                     var prevRout = router.prevRout;
                     
-                    if (prevRout && prevRout !== 'signIn' && Backbone.history.fragment === 'sign-in' || prevRout && Backbone.history.fragment !== 'sign-in') {
+                    if (prevRout) {
                         router.created[prevRout].kill();
                         delete router.created[prevRout];
                     }
@@ -20,6 +21,11 @@ define(
                 });
                 
                 Backbone.history.start();
+
+                router.onInitialize.apply(this, arguments);
+            },
+            onInitialize: function() {
+                /* abstract method */
             }
         });
     }
