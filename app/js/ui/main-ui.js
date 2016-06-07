@@ -13,8 +13,12 @@ require.config({
 
         // ui
         ui: 'js/ui',
-        backgrid: 'js/ui/libs/backbone-plugins/backgrid'
-    }
+        react: 'js/ui/libs/react/react-with-addons',
+        'react-dom': 'js/ui/libs/react/react-dom',
+        jsx: 'js/ui/libs/requirejs-plugins/jsx',
+        JSXTransformer: "js/ui/libs/requirejs-plugins/JSXTransformer"
+    },
+    waitSeconds: 0
 });
 
 require(

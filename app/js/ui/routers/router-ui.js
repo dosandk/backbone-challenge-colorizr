@@ -19,7 +19,7 @@ define(
             },
             onInitialize: function() {
                 App.createPage({
-                    css: ['riba'],
+                    css: ['default'],
                     view: Page,
                     urlArguments: arguments
                 });
